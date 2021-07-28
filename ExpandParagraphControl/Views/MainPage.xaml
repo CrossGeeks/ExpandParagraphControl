@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExpandParagraphControl.MainPage"
+             xmlns:controls="clr-namespace:ExpandParagraphControl.Controls"
+             BackgroundColor="White">
+
+    <StackLayout Padding="40"
+                 VerticalOptions="CenterAndExpand">
+
+        <Label Text="Objectives"/>
+        <controls:ExpandParagraphControl Text="{Binding ParagraphaText}"
+                                         TextFontSize="Caption"
+                                         TextFontAttributes="Italic"
+                                         TextColor="Gray"
+                                         DefaultButtonTitle="Show"/>
+
+        <Label Text="Vision"/>
+        <controls:ExpandParagraphControl Text="{Binding ParagraphaText}"
+                                         TextFontSize="Caption"
+                                         TextFontAttributes="Italic"
+                                         TextColor="Gray"
+                                         DefaultVisibleLines="5"
+                                         DefaultButtonTitle="Show"/>
+
+        <Label Text="Mission"/>
+        <controls:ExpandParagraphControl Text="{Binding ParagraphaText}"
+                                         TextFontSize="Caption"
+                                         TextFontAttributes="Italic"
+                                         TextColor="Gray"
+                                         DefaultVisibleLines="3"
+                                         ExpandedButtonTitle="^" />
+    </StackLayout>
+
+</ContentPage>

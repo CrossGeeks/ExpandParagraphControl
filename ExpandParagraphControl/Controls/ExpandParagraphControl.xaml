@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ExpandParagraphControl.Controls.ExpandParagraphControl">
+    <ContentView.ControlTemplate>
+         <ControlTemplate>
+            <StackLayout>
+                 <Label Text="{TemplateBinding Text}"
+                        FontAttributes="{TemplateBinding TextFontAttributes}"
+                        FontSize="{TemplateBinding TextFontSize}"
+                        TextColor="{TemplateBinding TextColor}"
+                        MaxLines="{TemplateBinding DefaultVisibleLines}"
+                        LineBreakMode="TailTruncation"
+                        x:Name="TextLabel">
+                     <Label.Triggers>
+                            <DataTrigger TargetType="Label"
+                                         Binding="{TemplateBinding IsExpanded}"
+                                         Value="True">
+                                <Setter Property="LineBreakMode" Value="WordWrap" />
+                                <Setter Property="MaxLines" Value="-1" />
+                            </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+
+                 <Button Text="{TemplateBinding DefaultButtonTitle}"
+                         TextColor="{TemplateBinding ButtonTextColor}"
+                         BackgroundColor="Transparent"
+                         HorizontalOptions="End"
+                         Command="{TemplateBinding MoreCommand}">
+                       <Button.Triggers>
+                            <DataTrigger TargetType="Button"
+                                         Binding="{TemplateBinding IsExpanded}"
+                                         Value="True">
+                                <Setter Property="Text" Value="{TemplateBinding ExpandedButtonTitle}" />
+                            </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </StackLayout>
+        </ControlTemplate>
+    </ContentView.ControlTemplate>
+</ContentView>
